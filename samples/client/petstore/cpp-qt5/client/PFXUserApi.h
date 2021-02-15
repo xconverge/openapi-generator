@@ -24,6 +24,7 @@
 #include <QStringList> 
 #include <QList>
 #include <QNetworkAccessManager>
+#include <optional>
 
 namespace test_namespace {
 
@@ -56,14 +57,22 @@ public:
     QString getParamStyleSuffix(QString style);
     QString getParamStyleDelimiter(QString style, QString name, bool isExplode);
 
-    void createUser(const PFXUser &body);
-    void createUsersWithArrayInput(const QList<PFXUser> &body);
-    void createUsersWithListInput(const QList<PFXUser> &body);
-    void deleteUser(const QString &username);
-    void getUserByName(const QString &username);
-    void loginUser(const QString &username, const QString &password);
+    void createUser(const PFXUser &body  );
+
+    void createUsersWithArrayInput(const QList<PFXUser> &body  );
+
+    void createUsersWithListInput(const QList<PFXUser> &body  );
+
+    void deleteUser(const QString &username  );
+
+    void getUserByName(const QString &username  );
+
+    void loginUser(const QString &username  , const QString &password  );
+
     void logoutUser();
-    void updateUser(const QString &username, const PFXUser &body);
+
+    void updateUser(const QString &username  , const PFXUser &body  );
+
 
 private:
     QString _scheme, _host;

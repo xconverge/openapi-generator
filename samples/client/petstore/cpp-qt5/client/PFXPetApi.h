@@ -25,6 +25,7 @@
 #include <QStringList> 
 #include <QList>
 #include <QNetworkAccessManager>
+#include <optional>
 
 namespace test_namespace {
 
@@ -57,14 +58,22 @@ public:
     QString getParamStyleSuffix(QString style);
     QString getParamStyleDelimiter(QString style, QString name, bool isExplode);
 
-    void addPet(const PFXPet &body);
-    void deletePet(const qint64 &pet_id, const QString &api_key);
-    void findPetsByStatus(const QList<QString> &status);
-    void findPetsByTags(const QList<QString> &tags);
-    void getPetById(const qint64 &pet_id);
-    void updatePet(const PFXPet &body);
-    void updatePetWithForm(const qint64 &pet_id, const QString &name, const QString &status);
-    void uploadFile(const qint64 &pet_id, const QString &additional_metadata, const PFXHttpFileElement &file);
+    void addPet(const PFXPet &body  );
+
+    void deletePet(const qint64 &pet_id  , std::optional<QString> api_key = std::nullopt );
+
+    void findPetsByStatus(const QList<QString> &status  );
+
+    void findPetsByTags(const QList<QString> &tags  );
+
+    void getPetById(const qint64 &pet_id  );
+
+    void updatePet(const PFXPet &body  );
+
+    void updatePetWithForm(const qint64 &pet_id  , std::optional<QString> name = std::nullopt , std::optional<QString> status = std::nullopt );
+
+    void uploadFile(const qint64 &pet_id  , std::optional<QString> additional_metadata = std::nullopt , std::optional<PFXHttpFileElement> file = std::nullopt );
+
 
 private:
     QString _scheme, _host;

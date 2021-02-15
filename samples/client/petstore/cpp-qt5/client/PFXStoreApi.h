@@ -24,6 +24,7 @@
 #include <QStringList> 
 #include <QList>
 #include <QNetworkAccessManager>
+#include <optional>
 
 namespace test_namespace {
 
@@ -56,10 +57,14 @@ public:
     QString getParamStyleSuffix(QString style);
     QString getParamStyleDelimiter(QString style, QString name, bool isExplode);
 
-    void deleteOrder(const QString &order_id);
+    void deleteOrder(const QString &order_id  );
+
     void getInventory();
-    void getOrderById(const qint64 &order_id);
-    void placeOrder(const PFXOrder &body);
+
+    void getOrderById(const qint64 &order_id  );
+
+    void placeOrder(const PFXOrder &body  );
+
 
 private:
     QString _scheme, _host;
